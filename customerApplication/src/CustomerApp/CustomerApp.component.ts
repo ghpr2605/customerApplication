@@ -3,7 +3,7 @@ import { Customer } from './CustomerApp.model';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './CustomerApp.view.html',
+  templateUrl: './CustomerApp.MasterPageView.html',
   styleUrls: ['./CustomerApp.component.css']
 })
 export class CustomerComponent {
