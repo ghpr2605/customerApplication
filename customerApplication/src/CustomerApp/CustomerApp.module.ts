@@ -6,8 +6,6 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './CustomerApp-routing.module';
 import { MainComponent } from './CustomerApp.component';
 import { CustomerComponent } from './customer/customer.component';
-import { HomeComponent } from './home/home.component';
-import { SupplierComponent } from './supplier/supplier.component';
 
 @NgModule({
   declarations: [
