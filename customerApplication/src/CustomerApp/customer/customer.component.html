@@ -1,7 +1,9 @@
-Customer Code : <input [(ngModel)]="customerModel.customerCode" type="text"><br>
-Customer Name : <input [(ngModel)]="customerModel.customerName" type="text"><br>
-Customer Amount : <input [(ngModel)]="customerModel.customerAmount" type="text"><br>
-<input (click)="add()" type="button" value="Add"><br>
+<form [formGroup]="customerModel.formGroup">
+    Customer Code : <input formControlName="CutomerCodeControl" [(ngModel)]="customerModel.customerCode" type="text"><br>
+    Customer Name : <input formControlName="CustomerNameControl" [(ngModel)]="customerModel.customerName" type="text"><br>
+    Customer Amount : <input [(ngModel)]="customerModel.customerAmount" type="text" [ngModelOptions]="{standalone: true}"><br>
+    <input [disabled] = "!(customerModel.formGroup.valid)" (click)="add()" type="button" value="Add"><br>
+</form>
 {{customerModel.customerCode}} <br>
 {{customerModel.customerName}} <br>
 {{customerModel.customerAmount}} <br>
