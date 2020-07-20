@@ -12,8 +12,13 @@ export class CustomerComponent implements OnInit {
   title = 'customerApplication';
   customerModel: Customer = new Customer();
   customerModels: Array<Customer> = new Array<Customer>();
+
   add() {
     this.customerModels.push(this.customerModel);
     this.customerModel = new Customer();
+  }
+
+  hasError(typeOfValidator: string, controlName: string): boolean {
+    return this.customerModel.formGroup.controls[controlName].hasError(typeOfValidator);
   }
 }
