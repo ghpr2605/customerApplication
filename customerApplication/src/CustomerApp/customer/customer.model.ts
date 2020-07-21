@@ -13,6 +13,8 @@ export class Customer {
 
         let validationCollection = [];
         validationCollection.push(Validators.required, Validators.pattern("^[0-9]{4,4}$"));
-        this.formGroup.addControl("CutomerCodeControl", new FormControl('', Validators.compose(validationCollection)));
+        this.formGroup.addControl("CustomerCodeControl", new FormControl('', Validators.compose(validationCollection)));
+
+        this.formGroup.addControl("CustomerAmountControl", new FormControl('', Validators.pattern("[0-9]*")));
     }
 }
