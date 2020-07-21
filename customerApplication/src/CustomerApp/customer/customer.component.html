@@ -1,24 +1,27 @@
 <form [formGroup]="customerModel.formGroup">
-    Customer Code : <input formControlName="CutomerCodeControl" [(ngModel)]="customerModel.customerCode" type="text"><br>
-    Customer Name : <input formControlName="CustomerNameControl" [(ngModel)]="customerModel.customerName" type="text"><br>
-    Customer Amount : <input [(ngModel)]="customerModel.customerAmount" type="text" [ngModelOptions]="{standalone: true}"><br>
+    Customer Code : <input formControlName="CustomerCodeControl" [(ngModel)]="customerModel.customerCode" type="text">
+    <span *ngIf="customerModel.formGroup.dirty" [hidden]="!(hasError('pattern','CustomerCodeControl'))">
+        Customer code format is incorrect
+    </span>
+    <span *ngIf="customerModel.formGroup.dirty" [hidden]="!(hasError('required','CustomerCodeControl'))">
+        Customer code is required
+    </span>
+    <br>
+    Customer Name : <input formControlName="CustomerNameControl" [(ngModel)]="customerModel.customerName" type="text">
+    <span *ngIf="customerModel.formGroup.dirty" [hidden]="!(hasError('required','CustomerNameControl'))">
+        Customer name is required
+    </span>
+    <br>
+    Customer Amount : <input formControlName="CustomerAmountControl" [(ngModel)]="customerModel.customerAmount" type="text">
+    <span *ngIf="customerModel.formGroup.dirty" [hidden]="!(hasError('pattern','CustomerAmountControl'))">
+        Customer amount should be numeric
+    </span>
+    <br>
     <input [disabled] = "!(customerModel.formGroup.valid)" (click)="add()" type="button" value="Add"><br>
 </form>
 {{customerModel.customerCode}} <br>
 {{customerModel.customerName}} <br>
 {{customerModel.customerAmount}} <br>
-<div *ngIf="customerModel.formGroup.dirty" [hidden]="!(hasError('pattern','CutomerCodeControl'))">
-    Customer code format is incorrect
-</div>
-<br>
-<div *ngIf="customerModel.formGroup.dirty" [hidden]="!(hasError('required','CutomerCodeControl'))">
-    Customer code is required
-</div>
-<br>
-<div *ngIf="customerModel.formGroup.dirty" [hidden]="!(hasError('required','CustomerNameControl'))">
-    Customer name is required
-</div>
-<br>
 <table>
     <tr>
         <td>Customer Code</td>
