@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
 import { BaseLogger} from '../utility/customerApp.logger';
 
 @Component({
@@ -13,8 +13,8 @@ export class HomeComponent implements OnInit {
   
   log: BaseLogger = null;
   
-  constructor(_logger:BaseLogger){
-    this.log = _logger;
+  constructor(_injector:Injector){
+    this.log = _injector.get("1");
     this.log.Log();
   }
 }

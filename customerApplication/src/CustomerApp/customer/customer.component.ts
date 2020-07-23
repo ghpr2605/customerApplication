@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
 import { Customer } from './customer.model';
 import { BaseLogger } from '../utility/customerApp.logger';
 
@@ -15,8 +15,8 @@ export class CustomerComponent implements OnInit {
   customerModels: Array<Customer> = new Array<Customer>();
   log:  BaseLogger = null;
 
-  constructor(_logger:BaseLogger){
-    this.log = _logger;
+  constructor(_injector:Injector){
+    this.log = _injector.get("2");
     this.log.Log();
   }
 

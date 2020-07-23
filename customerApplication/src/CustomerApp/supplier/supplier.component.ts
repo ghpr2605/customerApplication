@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BaseLogger} from '../utility/customerApp.logger';
 
 @Component({
   selector: 'app-supplier',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupplierComponent implements OnInit {
 
-  constructor() { }
-
   ngOnInit(): void {
+  }
+
+  log: BaseLogger = null;
+  
+  constructor(_logger:BaseLogger){
+    this.log = _logger;
+    this.log.Log();
   }
 
 }

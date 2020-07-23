@@ -6,7 +6,7 @@ import { AppRoutingModule } from './CustomerApp-routing.module';
 import { MainComponent } from './CustomerApp.component';
 import { CustomerComponent } from './customer/customer.component';
 
-import { BaseLogger, ConsoleLogger } from './utility/customerApp.logger';
+import { BaseLogger, ConsoleLogger, DBLogger } from './utility/customerApp.logger';
 
 @NgModule({
   declarations: [
@@ -22,6 +22,12 @@ import { BaseLogger, ConsoleLogger } from './utility/customerApp.logger';
   providers: [{
     provide: BaseLogger,
     useClass: ConsoleLogger
+  },{
+    provide: "1",
+    useClass: ConsoleLogger
+  },{
+    provide: "2",
+    useClass: DBLogger
   }],
   bootstrap: [MainComponent]
 })
