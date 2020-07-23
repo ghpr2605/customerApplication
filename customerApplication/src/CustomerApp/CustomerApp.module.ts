@@ -6,6 +6,8 @@ import { AppRoutingModule } from './CustomerApp-routing.module';
 import { MainComponent } from './CustomerApp.component';
 import { CustomerComponent } from './customer/customer.component';
 
+import { BaseLogger, ConsoleLogger } from './utility/customerApp.logger';
+
 @NgModule({
   declarations: [
     MainComponent,
@@ -17,7 +19,10 @@ import { CustomerComponent } from './customer/customer.component';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [{
+    provide: BaseLogger,
+    useClass: ConsoleLogger
+  }],
   bootstrap: [MainComponent]
 })
 export class CustomerAppModule { }
