@@ -8,8 +8,6 @@ import { BaseLogger} from '../utility/customerApp.logger';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
-
   ngOnInit(): void {
   }
   
