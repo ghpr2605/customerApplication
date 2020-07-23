@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from './customer.model'
+import { Customer } from './customer.model';
+import { BaseLogger } from '../utility/customerApp.logger';
 
 @Component({
   selector: 'app-customer',
@@ -12,6 +13,12 @@ export class CustomerComponent implements OnInit {
   title = 'customerApplication';
   customerModel: Customer = new Customer();
   customerModels: Array<Customer> = new Array<Customer>();
+  log:  BaseLogger = null;
+
+  constructor(_logger:BaseLogger){
+    this.log = _logger;
+    this.log.Log();
+  }
 
   add() {
     this.customerModels.push(this.customerModel);
